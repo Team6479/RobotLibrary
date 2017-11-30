@@ -1,0 +1,7 @@
+<ivy-module version = "2.0">
+    <info organisation = "com.team6479" module = "RobotLibrary"/>
+    <dependencies>
+        <dependency org = "edu.wpi.cscore.java" name = "cscore" rev = "1.0.2" />
+        <dependency org = "edu.wpi.first.wpilib.networktables.java" name = "NetworkTables" rev = "3.1.7" />
+    </dependencies>
+</ivy-module>

@@ -1,5 +1,7 @@
 package robot.xbox;
 
+import edu.wpi.first.wpilibj.command.Command;
+
 public class XboxMap {
 	
 	//Sticks and Triggers
