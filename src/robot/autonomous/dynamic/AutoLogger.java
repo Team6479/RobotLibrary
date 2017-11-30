@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import autonomous.Global;
+import robot.autonomous.Global;
 
 public class AutoLogger {
 	

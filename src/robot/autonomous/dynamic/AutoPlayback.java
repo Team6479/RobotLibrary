@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-import autonomous.Global;
+import robot.autonomous.Global;
 
 //playback the autonomous rotuine specidefiec by the file
 public class AutoPlayback {

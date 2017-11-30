@@ -39,7 +39,9 @@
   		<jar destfile = "${jar.dir}/RobotLibrary.jar"
    	         basedir  = "${compile.dir}"
    	         includes = "**/robot/">
-         <zipgroupfileset dir="lib" includes="*.jar" />
+         <zipgroupfileset dir = "lib"
+                          includes = "*.jar" 
+                          excludes = "*sources.jar" />
          <manifest>
         	   <attribute name = "Built-By" value = "${user.name}"/>
       	</manifest>
