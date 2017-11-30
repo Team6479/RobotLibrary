@@ -1,50 +1,53 @@
-<project name = "RobotLibrary" default = "jar" basedir = "." xmlns:ivy="antlib:org.apache.ivy.ant">
-	<target name = "init">
-  		<property file = "build.properties" />
+<project name = "RobotLibrary" default = "jar" basedir = "." xmlns:ivy = "antlib:org.apache.ivy.ant">
+	<description>
+		simple example build file
+	</description>
 
-    	<echo message = "Built-By: ${user.name}"/>
+	<target name = "init">
+		<property file = "build.properties"/>
+
+		<echo message = "Built-By: ${user.name}"/>
 	</target>
 
 	<target name = "clean" depends = "init">
-    	<delete dir = "${output.dir}" />
-    	<ivy:cleancache />
+		<delete dir = "${output.dir}"/>
+		<ivy:cleancache/>
 	</target>
 
 	<target name = "prepare" depends = "clean">
-    	<mkdir dir = "${output.dir}" />
-    	<mkdir dir = "${compile.dir}" />
-      <mkdir dir = "${jar.dir}" />
+		<mkdir dir = "${output.dir}"/>
+		<mkdir dir = "${compile.dir}"/>
+		<mkdir dir = "${jar.dir}"/>
 	</target>
 
 	<target name = "resolve" depends = "prepare">
 		<ivy:retrieve/>
 	</target>
 
-  <path id="classpath">
-      <fileset dir = "lib">
-         <include name = "*.jar" />
-      </fileset>
-  </path>
-
 	<target name = "compile" depends = "prepare">
-      	<javac srcdir           = "${source.dir}" 
-               destdir           = "${compile.dir}"
-               debug             = "false"
-               classpathref      = "classpath"
-               includeantruntime = "false"
-               optimize          = "true" />
+		<path id = "classpath">
+			<fileset dir = "${lib.dir}">
+				<include name = "*.jar"/>
+			</fileset>
+		</path>
+
+		<javac srcdir				 = "${source.dir}" 
+				 destdir				 = "${compile.dir}"
+				 debug				 = "false"
+				 classpathref		 = "classpath"
+				 includeantruntime = "false"/>
 	</target>
 
 	<target name = "jar" depends = "compile, init">
-  		<jar destfile = "${jar.dir}/RobotLibrary.jar"
-   	         basedir  = "${compile.dir}"
-   	         includes = "**/robot/">
-         <zipgroupfileset dir = "lib"
-                          includes = "*.jar" 
-                          excludes = "*sources.jar" />
-         <manifest>
-        	   <attribute name = "Built-By" value = "${user.name}"/>
-      	</manifest>
+		<jar destfile = "${jar.dir}/RobotLibrary.jar"
+			  basedir  = "${compile.dir}"
+			  includes = "**/robot/">
+			<zipgroupfileset dir = "lib"
+								  includes = "*.jar" 
+								  excludes = "*sources.jar"/>
+			<manifest>
+				<attribute name = "Built-By" value = "${user.name}"/>
+			</manifest>
 		</jar>
 	</target>
 </project>
