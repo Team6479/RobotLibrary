@@ -49,5 +49,13 @@
 				<attribute name = "Built-By" value = "${user.name}"/>
 			</manifest>
 		</jar>
+
+		<jar destfile = "${jar.dir}/RobotLibrary-sources.jar"
+			  basedir  = "${source.dir}"
+			  includes = "**/robot/">
+			<manifest>
+				<attribute name = "Built-By" value = "${user.name}"/>
+			</manifest>
+		</jar>
 	</target>
 </project>
