@@ -1,9 +1,11 @@
 <ivy-module version = "2.0">
-    <info organisation = "com.team6479" module = "RobotLibrary"/>
-    <dependencies>
-        <dependency org = "edu.wpi.cscore.java" name = "cscore" rev = "1.0.2"/>
-        <dependency org = "edu.wpi.first.wpilib.networktables.java" name = "NetworkTables" rev = "3.1.7"/>
-        <dependency org = "org.opencv" name = "opencv-java" rev = "3.2.0"/>
-        <dependency org = "edu.wpi.first.wpilibj" name = "wpilibj-java" rev = "2018.1.1-beta-3"/>
-    </dependencies>
+	<info organisation = "com.team6479" module = "RobotLibrary"/>
+	<dependencies>
+		<!--<dependency org = "edu.wpi.cscore.java" name = "cscore" rev = "1.0.2"/>
+		<dependency org = "edu.wpi.first.wpilib.networktables.java" name = "NetworkTables" rev = "3.1.7"/>
+		<dependency org = "org.opencv" name = "opencv-java" rev = "3.2.0"/>-->
+		<dependency org = "edu.wpi.first.wpilibj" name = "wpilibj-java" rev = "2018.1.1-beta-3"/>
+		<dependency org = "org.antlr" name = "antlr4" rev = "4.7"/>
+		<dependency org = "org.antlr" name = "antlr4-runtime" rev = "4.7"/>
+	</dependencies>
 </ivy-module>
