@@ -4,6 +4,10 @@
 	<artifactId>robotlib</artifactId>
 	<version>0.0.1</version>
 
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
 	<repositories>
 		<repository>
 			<id>frc-release</id>
