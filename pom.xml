@@ -93,9 +93,9 @@
 
 <distributionManagement>
 	<repository>
-		<id>bintray-team6479-RoboRepo</id>
-		<name>team6479-RoboRepo</name>
-		<url>https://api.bintray.com/maven/team6479/RoboRepo/robotlib/;publish=1</url>
+		<id>bintray-team6479-RobotRepo</id>
+		<name>team6479-RobotRepo</name>
+		<url>https://api.bintray.com/maven/team6479/RobotRepo/robotlib/;publish=1</url>
 	</repository>
 </distributionManagement>
 </project>
