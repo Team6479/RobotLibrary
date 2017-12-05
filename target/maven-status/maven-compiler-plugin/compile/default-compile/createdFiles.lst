@@ -1,0 +1,6 @@
+robot/autonomous/dynamic/RobotControl.class
+robot/autonomous/dynamic/AutoLogger.class
+robot/autonomous/Global.class
+robot/xbox/XboxMap.class
+robot/autonomous/dynamic/AutoPlayback.class
+robot/xbox/ButtonTracker.class

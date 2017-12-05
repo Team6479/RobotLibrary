@@ -1,0 +1,86 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>team6479.roborepo</groupId>
+	<artifactId>robotlib</artifactId>
+	<version>0.0.1</version>
+
+	<repositories>
+		<repository>
+			<id>frc-release</id>
+			<name>frc-release</name>
+			<url>http://first.wpi.edu/FRC/roborio/maven/release/</url>
+		</repository>
+	</repositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.antlr</groupId>
+			<artifactId>antlr4</artifactId>
+			<version>4.7</version>
+		</dependency>
+		<dependency>
+			<groupId>org.antlr</groupId>
+			<artifactId>antlr4-runtime</artifactId>
+			<version>4.7</version>
+		</dependency>
+		<dependency>
+			<groupId>edu.wpi.first.cscore</groupId>
+			<artifactId>cscore-java</artifactId>
+			<version>1.1.0-beta-3</version>
+		</dependency>
+		<dependency>
+			<groupId>edu.wpi.first.ntcore</groupId>
+			<artifactId>ntcore-java</artifactId>
+			<version>4.0.0-beta-3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.opencv</groupId>
+			<artifactId>opencv-java</artifactId>
+			<version>3.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>edu.wpi.first.wpilibj</groupId>
+			<artifactId>wpilibj-java</artifactId>
+			<version>2018.1.1-beta-3</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<sourceDirectory>src</sourceDirectory>
+			<plugins>
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.7.0</version>
+					<configuration>
+						<source>1.8</source>
+						<target>1.8</target>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.antlr</groupId>
+					<artifactId>antlr4-maven-plugin</artifactId>
+					<version>4.3</version>
+					<configuration>
+						<arguments></arguments>
+						<sourceDirectory>src/antlr4</sourceDirectory>
+					</configuration>
+					<executions>
+						<execution>
+							<id>antlr</id>
+							<goals>
+								<goal>antlr4</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+	</build>
+
+<distributionManagement>
+	<repository>
+		<id>bintray-team6479-RoboRepo</id>
+		<name>team6479-RoboRepo</name>
+		<url>https://api.bintray.com/maven/team6479/RoboRepo/robotlib/;publish=1</url>
+	</repository>
+</distributionManagement>
+</project>
