@@ -80,7 +80,11 @@
 					<artifactId>antlr4-maven-plugin</artifactId>
 					<version>4.7</version>
 					<configuration>
-						<arguments>-visitor</arguments>
+						<arguments>
+							<argument>-visitor</argument>
+							<argument>-o ${basedir}/src/main/java/robot/autonomous/rpl/parser</argument>
+							<argument>-package robot.autonomous.rpl.parser</argument>
+						</arguments>
 					</configuration>
 					<executions>
 						<execution>
