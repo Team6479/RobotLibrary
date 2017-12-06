@@ -1,5 +1,9 @@
 grammar RobotProgrammingLanguage;
 
+@header {
+package robot.autonomous.rpl.parser;
+} 
+
 /*Rules for the Parser*/
 
 file : line+ EOF ;
