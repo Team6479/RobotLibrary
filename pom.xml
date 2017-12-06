@@ -80,8 +80,8 @@
 					<artifactId>antlr4-maven-plugin</artifactId>
 					<version>4.7</version>
 					<configuration>
-						<outputDirectory>src/main/java/robot/autonomous/rpl/parser</outputDirectory>
-						<visitor>true</visitor>
+						<visitor>false</visitor>
+						<listener>true</listener>
 					</configuration>
 					<executions>
 						<execution>
