@@ -80,6 +80,11 @@
 					<artifactId>antlr4-maven-plugin</artifactId>
 					<version>4.7</version>
 					<configuration>
+						<arguments>
+							<argument>-package</argument>
+							<argument>rpl</argument>
+						</arguments>
+						<outputDirectory>${project.build.directory}/generated-sources/antlr4/rpl</outputDirectory>
 						<visitor>false</visitor>
 						<listener>true</listener>
 					</configuration>
