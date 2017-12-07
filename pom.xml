@@ -1,7 +1,7 @@
 <project xmlns = "http://maven.apache.org/POM/4.0.0"
 			xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
 			xsi:schemaLocation = "http://maven.apache.org/POM/4.0.0 
-										 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+					   				 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>team6479.robotrepo</groupId>
 	<artifactId>robotlib</artifactId>
@@ -48,63 +48,71 @@
 	</dependencies>
 
 	<build>
-			<plugins>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-source-plugin</artifactId>
-					<version>3.0.1</version>
-					<executions>
-						<execution>
-							<id>attach-sources</id>
-							<goals>
-								<goal>jar</goal>
-							</goals>
-						</execution>
-					</executions>
-				</plugin>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-javadoc-plugin</artifactId>
-					<version>3.0.0-M1</version>
-					<executions>
-						<execution>
-							<id>attach-javadocs</id>
-							<goals>
-								<goal>jar</goal>
-							</goals>
-						</execution>
-					</executions>
-				</plugin>
-				<plugin>
-					<groupId>org.antlr</groupId>
-					<artifactId>antlr4-maven-plugin</artifactId>
-					<version>4.7</version>
-					<configuration>
-						<arguments>
-							<argument>-package</argument>
-							<argument>rpl</argument>
-						</arguments>
-						<outputDirectory>${project.build.directory}/generated-sources/antlr4/rpl</outputDirectory>
-						<visitor>false</visitor>
-						<listener>true</listener>
-					</configuration>
-					<executions>
-						<execution>
-							<id>antlr</id>
-							<goals>
-								<goal>antlr4</goal>
-							</goals>
-						</execution>
-					</executions>
-				</plugin>
-			</plugins>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.7.0</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>3.0.1</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>3.0.0-M1</version>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.antlr</groupId>
+				<artifactId>antlr4-maven-plugin</artifactId>
+				<version>4.7</version>
+				<configuration>
+					<arguments>
+						<argument>-package</argument>
+						<argument>rpl</argument>
+					</arguments>
+					<outputDirectory>${project.build.directory}/generated-sources/antlr4/rpl</outputDirectory>
+					<visitor>false</visitor>
+					<listener>true</listener>
+				</configuration>
+				<executions>
+					<execution>
+						<id>antlr</id>
+						<goals>
+							<goal>antlr4</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
 	</build>
 
-<distributionManagement>
-	<repository>
-		<id>bintray-team6479-RobotRepo</id>
-		<name>team6479-RobotRepo</name>
-		<url>https://api.bintray.com/maven/team6479/RobotRepo/robotlib/;publish=1</url>
-	</repository>
-</distributionManagement>
+	<distributionManagement>
+		<repository>
+			<id>bintray-team6479-RobotRepo</id>
+			<name>team6479-RobotRepo</name>
+			<url>https://api.bintray.com/maven/team6479/RobotRepo/robotlib/;publish=1</url>
+		</repository>
+	</distributionManagement>
 </project>
