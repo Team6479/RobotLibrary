@@ -1,8 +1,9 @@
-grammar RobotProgrammingLanguage;
+grammar RobotSettingsLanguage;
+
 
 /*Rules for the Parser*/
 
-file : line+ EOF ;
+file : (line | comment)+ EOF ;
 
 line : multipleCommand NEWLINE ;
 
@@ -12,7 +13,14 @@ multipleCommand : command+ INTEGER ;
 
 
 /*command plus the value for the command, which is optional*/
-command : WORD WHITESPACE DECIMAL? ;
+command : WORD WHITESPACE (DECIMAL | INTEGER)? ;
+
+
+
+/*define comments*/
+comment : singleComment | multiComment ;
+singleComment : '//' .* NEWLINE ;
+multiComment : '/*' .* '*/' ;
 
 
 /*Rules for the Lexer*/

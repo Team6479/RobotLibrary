@@ -96,20 +96,39 @@
 				<groupId>org.antlr</groupId>
 				<artifactId>antlr4-maven-plugin</artifactId>
 				<version>4.7</version>
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-					<arguments>
-						<argument>-package</argument>
-						<argument>rpl</argument>
-					</arguments>
-					<outputDirectory>${project.build.directory}/generated-sources/antlr4/rpl</outputDirectory>
-					<visitor>false</visitor>
-					<listener>true</listener>
-				</configuration>
 				<executions>
 					<execution>
-						<id>antlr</id>
+						<id>antlr-rpl</id>
+						<configuration>
+							<source>1.8</source>
+							<target>1.8</target>
+							<arguments>
+								<argument>-package</argument>
+								<argument>rpl</argument>
+							</arguments>
+							<sourceDirectory>${basedir}/src/main/antlr4/rpl</sourceDirectory>
+							<outputDirectory>${project.build.directory}/generated-sources/antlr4/rpl</outputDirectory>
+							<visitor>false</visitor>
+							<listener>true</listener>
+						</configuration>
+						<goals>
+							<goal>antlr4</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>antlr-rsl</id>
+						<configuration>
+							<source>1.8</source>
+							<target>1.8</target>
+							<arguments>
+								<argument>-package</argument>
+								<argument>rsl</argument>
+							</arguments>
+							<sourceDirectory>${basedir}/src/main/antlr4/rsl</sourceDirectory>
+							<outputDirectory>${project.build.directory}/generated-sources/antlr4/rsl</outputDirectory>
+							<visitor>false</visitor>
+							<listener>true</listener>
+						</configuration>
 						<goals>
 							<goal>antlr4</goal>
 						</goals>
