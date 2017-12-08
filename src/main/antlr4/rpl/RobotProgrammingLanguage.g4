@@ -8,7 +8,7 @@ file : (line | comment)+ EOF ;
 line : multipleCommand NEWLINE ;
 
 
-/*multple commands in one line are called at the same time for the time arguement*/
+/*multiple commands in one line are called at the same time for the time argument*/
 multipleCommand : command+ INTEGER ;
 
 

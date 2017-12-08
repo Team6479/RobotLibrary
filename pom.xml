@@ -115,24 +115,6 @@
 							<goal>antlr4</goal>
 						</goals>
 					</execution>
-					<execution>
-						<id>antlr-rsl</id>
-						<configuration>
-							<source>1.8</source>
-							<target>1.8</target>
-							<arguments>
-								<argument>-package</argument>
-								<argument>rsl</argument>
-							</arguments>
-							<sourceDirectory>${basedir}/src/main/antlr4/rsl</sourceDirectory>
-							<outputDirectory>${project.build.directory}/generated-sources/antlr4/rsl</outputDirectory>
-							<visitor>false</visitor>
-							<listener>true</listener>
-						</configuration>
-						<goals>
-							<goal>antlr4</goal>
-						</goals>
-					</execution>
 				</executions>
 			</plugin>
 		</plugins>

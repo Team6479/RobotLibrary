@@ -1,0 +1,8 @@
+<robot>
+	<drivetrain>
+		<motor>
+			<type>spark</type>
+			<port>
+		</motor>
+	</drivetrain>
+</robot>
