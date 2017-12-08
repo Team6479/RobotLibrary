@@ -1,0 +1,14 @@
+<robot>
+	<drivetrain>
+		<motor>
+			<id>left</id>
+			<type>spark</type>
+			<port>0</port>
+		</motor>
+		<motor>
+			<id>right</id>
+			<type>spark</type>
+			<port>1</port>
+		</motor>
+	</drivetrain>
+</robot>
