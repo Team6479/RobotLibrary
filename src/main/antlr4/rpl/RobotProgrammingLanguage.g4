@@ -1,18 +1,26 @@
 grammar RobotProgrammingLanguage;
 
+
 /*Rules for the Parser*/
 
-file : line+ EOF ;
+file : (line | comment)+ EOF ;
 
 line : multipleCommand NEWLINE ;
 
 
-/*multple commands in one line are called at the same time for the time arguement*/
+/*multiple commands in one line are called at the same time for the time argument*/
 multipleCommand : command+ INTEGER ;
 
 
 /*command plus the value for the command, which is optional*/
-command : WORD WHITESPACE DECIMAL? ;
+command : WORD WHITESPACE (DECIMAL | INTEGER)? ;
+
+
+
+/*define comments*/
+comment : singleComment | multiComment ;
+singleComment : '//' .* NEWLINE ;
+multiComment : '/*' .* '*/' ;
 
 
 /*Rules for the Lexer*/
