@@ -33,18 +33,4 @@
 			</solenoid>
 		</components>
 	</subsystem>
-	<actions>
-		<action>
-			<id>move</id>
-			<use>drivetrain</use>
-		</action>
-		<action>
-			<id>fire_piston</id>
-			<use>piston</use>
-		</action>
-		<action>
-			<id>release</id>
-			<use>valve</use>
-		</action>
-	</actions>
 </robot>
