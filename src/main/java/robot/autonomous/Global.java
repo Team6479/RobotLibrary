@@ -3,7 +3,7 @@ package robot.autonomous;
 import java.io.File;
 
 public class Global {
-	public static Global instance = new Global();
+	private static Global instance = new Global();
 	
 	//make construcotr private
 	private Global() {
@@ -12,7 +12,7 @@ public class Global {
 		dslFolder();
 	}
 	
-	public Global getInstance() {
+	public static Global getInstance() {
 		return instance;
 	}
 	
