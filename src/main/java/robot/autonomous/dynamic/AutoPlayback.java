@@ -24,7 +24,7 @@ public class AutoPlayback {
 	public boolean open() {
 		try 
 		{
-			read = new BufferedReader(new FileReader(Global.instance.DYNAMIC_DIR_PATH  + autoName));
+			read = new BufferedReader(new FileReader(Global.getInstance().DYNAMIC_DIR_PATH  + autoName));
 			
 		} 
 		catch (FileNotFoundException e) 

@@ -3,6 +3,7 @@ package robot.autonomous;
 import java.io.File;
 
 public class Global {
+	
 	private static Global instance = new Global();
 	
 	//make construcotr private

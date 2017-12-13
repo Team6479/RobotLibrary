@@ -23,7 +23,7 @@ public class AutoLogger {
 	public boolean open() {
 		try 
 		{
-			write = new BufferedWriter(new PrintWriter(Global.instance.DYNAMIC_DIR_PATH + autoName));
+			write = new BufferedWriter(new PrintWriter(Global.getInstance().DYNAMIC_DIR_PATH + autoName));
 			
 		} 
 		catch (FileNotFoundException e) 
