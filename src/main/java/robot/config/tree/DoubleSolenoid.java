@@ -13,6 +13,10 @@ public class DoubleSolenoid extends Component {
 	public String toString() {
 		return String.format("%s portOn[%d] portOff[%d]", super.toString(), portOn, portOff);
 	}
+	@Override
+	public String getVariableName() {
+		return getId();
+	}
 	
 	private int portOn;
 	private int portOff;

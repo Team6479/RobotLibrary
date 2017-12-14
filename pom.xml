@@ -1,11 +1,10 @@
-<project xmlns = "http://maven.apache.org/POM/4.0.0"
-			xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
-			xsi:schemaLocation = "http://maven.apache.org/POM/4.0.0 
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
 					   				 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>team6479.robotrepo</groupId>
 	<artifactId>robotlib</artifactId>
-	<version>0.0.4</version>
+	<version>0.1.0</version>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -20,6 +19,11 @@
 	</repositories>
 
 	<dependencies>
+		<dependency>
+			<groupId>com.squareup</groupId>
+			<artifactId>javapoet</artifactId>
+			<version>1.9.0</version>
+		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -59,6 +63,14 @@
 	</dependencies>
 
 	<build>
+		<resources>
+			<resource>
+				<directory>src/test/resource</directory>
+			</resource>
+			<resource>
+				<directory>src/main/resource</directory>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

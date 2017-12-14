@@ -11,6 +11,9 @@ public class Component {
 	public String toString() {
 		return String.format("%s: id[%s]", getClass().getSimpleName(), id);
 	}
+	public String getVariableName() {
+		return id;
+	}
 	
 	private String id;
 	

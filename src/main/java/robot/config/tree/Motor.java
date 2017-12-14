@@ -13,6 +13,10 @@ public class Motor extends Component {
 	public String toString() {
 		return String.format("%s type[%s] port[%d]", super.toString(), type, port);
 	}
+	@Override
+	public String getVariableName() {
+		return getId();
+	}
 	
 	private String type;
 	private int port;

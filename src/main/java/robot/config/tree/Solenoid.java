@@ -12,6 +12,10 @@ public class Solenoid extends Component {
 	public String toString() {
 		return String.format("%s port[%d]", super.toString(), port);
 	}
+	@Override
+	public String getVariableName() {
+		return getId();
+	}
 	
 	private int port;
 	
