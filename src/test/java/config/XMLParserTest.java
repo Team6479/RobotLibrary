@@ -25,7 +25,7 @@ public class XMLParserTest {
 		xml = new File(getClass().getClassLoader().getResource("systems.xml").getFile());
 		
 		//get parsed file
-		File parsed = new File(getClass().getClassLoader().getResource("ParsedXML").getFile());
+		File parsed = new File(getClass().getClassLoader().getResource("parsedXML").getFile());
 		parsedStr = "";
 		BufferedReader read = new BufferedReader(new FileReader(parsed));
 		int next = 0;

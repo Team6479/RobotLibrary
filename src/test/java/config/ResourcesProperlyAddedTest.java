@@ -10,7 +10,8 @@ public class ResourcesProperlyAddedTest {
 	public void shouldFindResources() {
 		//try and get the files
 		assertNotNull("Cannot find resource 'systems.xml'", getClass().getClassLoader().getResource("systems.xml"));
-		assertNotNull("Cannot find resource 'ParsedXML'", getClass().getClassLoader().getResource("ParsedXML"));
+		assertNotNull("Cannot find resource 'parsedXML'", getClass().getClassLoader().getResource("parsedXML"));
+		assertNotNull("Cannot find resource 'parsedJava'", getClass().getClassLoader().getResource("parsedJava"));
 	}
 
 }

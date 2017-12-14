@@ -3,7 +3,9 @@ package config;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 
 import org.junit.Before;
@@ -26,14 +28,14 @@ public class RobotMapCreationTest {
 		robot = ConfigParser.parseXML(xml);
 		
 		//get parsed file
-		//File parsed = new File(getClass().getClassLoader().getResource("ParsedXML").getFile());
-		//parsedStr = "";
-		/*BufferedReader read = new BufferedReader(new FileReader(parsed));
+		File parsed = new File(getClass().getClassLoader().getResource("parsedJava").getFile());
+		parsedStr = "";
+		BufferedReader read = new BufferedReader(new FileReader(parsed));
 		int next = 0;
 		while((next = read.read()) != -1) {
 			parsedStr += (char)next;
 		}
-		read.close();*/
+		read.close();
 	}
 	
 	@Test
@@ -45,9 +47,7 @@ public class RobotMapCreationTest {
 			StringBuilder fileAsString = new StringBuilder();
 			file.writeTo(fileAsString);
 
-			//assertEquals("The class does not generate as expected", parsedStr, fileAsString);
-			
-			System.out.println(fileAsString);
+			assertEquals("The class does not generate as expected", parsedStr, fileAsString.toString());
 		}
 		catch (IOException e) {
 			fail("Could not parse as a string for testing purposes");
