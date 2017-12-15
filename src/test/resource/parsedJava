@@ -1,23 +1,23 @@
 package test;
 
 public class RobotMapBase {
-  public static final int xbox = 0;
+	public static final int xbox = 0;
 
-  public static final int dsolOn = 4;
+	public static final int dsolOn = 4;
 
-  public static final int dsolOn = 5;
+	public static final int dsolOn = 5;
 
-  public static final int left = 0;
+	public static final int left = 0;
 
-  public static final int rightEncoderA = 2;
+	public static final int rightEncoderA = 2;
 
-  public static final int rightEncoderB = 3;
+	public static final int rightEncoderB = 3;
 
-  public static final int right = 1;
+	public static final int right = 1;
 
-  public static final int leftEncoderA = 0;
+	public static final int leftEncoderA = 0;
 
-  public static final int leftEncoderB = 1;
+	public static final int leftEncoderB = 1;
 
-  public static final int sol = 3;
+	public static final int sol = 3;
 }

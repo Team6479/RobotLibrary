@@ -144,7 +144,7 @@ public class ConfigParser {
 		
 		TypeSpec robotMapBaseClass = robotMapBaseBuilder.build();
 		
-		JavaFile robotMapBase = JavaFile.builder(packageDec, robotMapBaseClass).build();
+		JavaFile robotMapBase = JavaFile.builder(packageDec, robotMapBaseClass).indent("\t").build();
 		
 		return robotMapBase;
 	}
