@@ -1,6 +1,8 @@
 package test;
 
 public class RobotMapBase {
+  public static final int xbox = 0;
+
   public static final int dsolOn = 4;
 
   public static final int dsolOn = 5;

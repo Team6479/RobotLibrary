@@ -22,6 +22,10 @@
 				<channelA>2</channelA>
 				<channelB>3</channelB>
 			</encoder>
+			<sonar>
+				<id>sonar</id>
+				<port>4</port>
+			</sonar>
 		</components>
 	</subsystem>
 	<subsystem>

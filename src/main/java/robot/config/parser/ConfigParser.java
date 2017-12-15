@@ -22,6 +22,7 @@ import robot.config.tree.Encoder;
 import robot.config.tree.Motor;
 import robot.config.tree.Robot;
 import robot.config.tree.Solenoid;
+import robot.config.tree.Sonar;
 import robot.config.tree.Subsystem;
 
 public class ConfigParser {
@@ -71,6 +72,15 @@ public class ConfigParser {
 		Builder robotMapBaseBuilder = TypeSpec.classBuilder("RobotMapBase")
 				.addModifiers(Modifier.PUBLIC);
 		
+		//run through the controllers
+		for(Controller controller : robot.getControllers().values()) {
+			FieldSpec field = FieldSpec.builder(int.class, controller.getId())
+					.addModifiers(Modifier.PUBLIC, Modifier.STATIC, Modifier.FINAL)
+					.initializer("$L", controller.getPort())
+					.build();
+			robotMapBaseBuilder.addField(field);
+		}
+		
 		//run a loop through the components
 		for(Subsystem subsystem : robot.getSubsystems().values()) {
 			for(Component component : subsystem.getComponents().values()) {
@@ -119,6 +129,14 @@ public class ConfigParser {
 							.initializer("$L", enc.getChannelB())
 							.build();
 					robotMapBaseBuilder.addField(field2);
+				}
+				else if(component instanceof Sonar) {
+					Sonar enc = (Sonar)component;
+					FieldSpec field = FieldSpec.builder(int.class, enc.getVariableName())
+							.addModifiers(Modifier.PUBLIC, Modifier.STATIC, Modifier.FINAL)
+							.initializer("$L", enc.getPort())
+							.build();
+					robotMapBaseBuilder.addField(field);
 				}
 				
 			}
