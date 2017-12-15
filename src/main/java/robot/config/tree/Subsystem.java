@@ -21,6 +21,8 @@ public class Subsystem {
 		List<Node> dsolNodes = componentNodes.selectNodes("double_solenoid");
 		//get all dols of the subsystem
 		List<Node> solNodes = componentNodes.selectNodes("solenoid");
+		//get all encoders of the subsystem
+		List<Node> encNodes = componentNodes.selectNodes("encoder");
 		
 		components = new HashMap<String, Component>();
 		
@@ -35,6 +37,10 @@ public class Subsystem {
 		for(Node n: solNodes) {
 			Solenoid sol = new Solenoid(n);
 			components.put(sol.getId(), sol);
+		}
+		for(Node n: encNodes) {
+			Encoder enc = new Encoder(n);
+			components.put(enc.getId(), enc);
 		}
 	}
 	@Override

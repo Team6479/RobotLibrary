@@ -12,6 +12,16 @@
 				<port>1</port>
 				<type>spark</type>
 			</motor>
+			<encoder>
+				<id>leftEncoder</id>
+				<channelA>0</channelA>
+				<channelB>1</channelB>
+			</encoder>
+			<encoder>
+				<id>rightEncoder</id>
+				<channelA>2</channelA>
+				<channelB>3</channelB>
+			</encoder>
 		</components>
 	</subsystem>
 	<subsystem>
@@ -33,4 +43,9 @@
 			</solenoid>
 		</components>
 	</subsystem>
+	<controller>
+		<id>xbox</id>
+		<type>xbox</type>
+		<port>0</port>
+	</controller>
 </robot>

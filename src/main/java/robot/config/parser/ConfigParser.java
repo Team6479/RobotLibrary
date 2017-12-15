@@ -16,7 +16,9 @@ import com.squareup.javapoet.*;
 import com.squareup.javapoet.TypeSpec.Builder;
 
 import robot.config.tree.Component;
+import robot.config.tree.Controller;
 import robot.config.tree.DoubleSolenoid;
+import robot.config.tree.Encoder;
 import robot.config.tree.Motor;
 import robot.config.tree.Robot;
 import robot.config.tree.Solenoid;
@@ -39,8 +41,17 @@ public class ConfigParser {
 				Subsystem sub = new Subsystem(node);
 				subsystems.put(sub.getId(), sub);
 			}
+			
+			//get all subsystems
+			List<Node> controllerNodes = document.selectNodes("/robot/controller");
+			Map<String, Controller> controllers = new HashMap<String, Controller>();
+			for(Node node: controllerNodes) {
+				Controller con = new Controller(node);
+				controllers.put(con.getId(), con);
+			}
+			
 			//make a robot
-			Robot robot = new Robot(subsystems);
+			Robot robot = new Robot(subsystems, controllers);
 			return robot;
 
 		}
@@ -92,6 +103,20 @@ public class ConfigParser {
 					FieldSpec field2 = FieldSpec.builder(int.class, dsolenoid.getVariableName() + "On")
 							.addModifiers(Modifier.PUBLIC, Modifier.STATIC, Modifier.FINAL)
 							.initializer("$L", dsolenoid.getPortOff())
+							.build();
+					robotMapBaseBuilder.addField(field2);
+				}
+				else if(component instanceof Encoder) {
+					Encoder enc = (Encoder)component;
+					FieldSpec field1 = FieldSpec.builder(int.class, enc.getVariableName() + "A")
+							.addModifiers(Modifier.PUBLIC, Modifier.STATIC, Modifier.FINAL)
+							.initializer("$L", enc.getChannelA())
+							.build();
+					robotMapBaseBuilder.addField(field1);
+					
+					FieldSpec field2 = FieldSpec.builder(int.class, enc.getVariableName() + "B")
+							.addModifiers(Modifier.PUBLIC, Modifier.STATIC, Modifier.FINAL)
+							.initializer("$L", enc.getChannelB())
 							.build();
 					robotMapBaseBuilder.addField(field2);
 				}
