@@ -1,10 +1,10 @@
 package drive;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import edu.wpi.first.wpilibj.SpeedController;
 import robot.drive.Drive;
-import util.Util;
 
 public class DriveOutputsExpectedTest {
 
@@ -20,7 +20,7 @@ public class DriveOutputsExpectedTest {
 		double input1 = 0;
 		double input2 = 0;
 		int scale = 1;
-		String message = "With input (%f, %f) and scale factor %d, the expected value was (%f, %f) and the actual value was (%f, %f) using %s";
+		String message = "With input (%f, %f) and scale factor %d, the expected value was (%f, %f) and the actual value was (%f, %f) using ";
 		//test values
 		double[] values = {0, 1, -1, 0.75, -0.75, 0.5, -0.5, 0.25, -0.25, 0.125, -0.125};
 		
@@ -33,7 +33,8 @@ public class DriveOutputsExpectedTest {
 				input1 = values[i];
 				for(int j = 0; j < values.length; j++) {
 					input2 = values[j];
-					testTank(drive, input1, input2, message);
+					testTank(drive, input1, input2, message + "Tank Drive");
+					testHalfTank(drive, input1, input2, message + "Half Tank Drive");
 				}
 			}
 		}
@@ -51,10 +52,8 @@ public class DriveOutputsExpectedTest {
 		double actual2 = drive.getRightSpeed();
 		
 		//compute the value
-		double expected1 = actual1;
-		double expected2 = actual2;
-		
-		
+		double expected1 = input1;
+		double expected2 = input2;
 		
 		//if scale is even, need to store sign
 		//if scale is odd, no need to store sign, will not be erased by odd power exponent
@@ -80,9 +79,15 @@ public class DriveOutputsExpectedTest {
 		//if vales are equal, pass
 		boolean areEqual = (Math.abs(expected1 - actual1) <= epsilon && Math.abs(expected2 - actual2) <= epsilon);
 		
-		String desc = String.format(message, input1, input2, scale, expected1, expected2, actual1, actual2, "Tank Drive");
+		String desc = String.format(message, input1, input2, scale, expected1, expected2, actual1, actual2);
 		
-		Util.assertTrue(desc, areEqual);
+		Assert.assertTrue(desc, areEqual);
+	}
+	public void testHalfTank(Drive drive, double input1, double input2, String message) {
+		//apply inputs to drive
+		drive.halfTank(input1, input2);
+		
+		testTank(drive, input1, input2, message);
 	}
 
 

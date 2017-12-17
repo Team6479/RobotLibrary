@@ -5,24 +5,24 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import robot.config.parser.ConfigParser;
 import robot.config.tree.Robot;
-import util.Util;
 
 //test the parsing of the xml file
 public class XMLParserTest {
 
 	private File xml;
 	private String parsedStr;
-	
+
 	@Before
 	public void setupTest() throws IOException {
 		//get xml file
 		xml = new File(getClass().getClassLoader().getResource("systems.xml").getFile());
-		
+
 		//get parsed file
 		File parsed = new File(getClass().getClassLoader().getResource("parsedXML").getFile());
 		parsedStr = "";
@@ -33,22 +33,16 @@ public class XMLParserTest {
 		}
 		read.close();
 	}
-	
+
 	@Test
 	public void shouldParseXMLIntoValidRobotConfig() {
-		try 
-		{
-			//parse the xml
-			Robot robot = ConfigParser.parseXML(xml);
-			String robotStr = robot.toString();
+		//parse the xml
+		Robot robot = ConfigParser.parseXML(xml);
+		String robotStr = robot.toString();
 
-			//if returns no Robot, failure
-			Util.assertNotNull("Valid robot object returned", robot);
+		//if returns no Robot, failure
+		Assert.assertNotNull("Valid robot object returned", robot);
 
-			Util.assertEquals("The expected xml parsing matches the actual parsing", parsedStr, robotStr);
-		}
-		catch (NullPointerException e) {
-			Util.fail("Error parsing xml");
-		}
+		Assert.assertEquals("The expected xml parsing matches the actual parsing", parsedStr, robotStr);
 	}
 }

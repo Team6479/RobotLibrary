@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -12,19 +13,18 @@ import com.squareup.javapoet.JavaFile;
 
 import robot.config.parser.ConfigParser;
 import robot.config.tree.Robot;
-import util.Util;
 
 public class RobotMapCreationTest {
 
 	private Robot robot;
 	private String parsedStr;
-	
+
 	@Before
 	public void setupTest() throws IOException {
 		//get xml file
 		File xml = new File(getClass().getClassLoader().getResource("systems.xml").getFile());
 		robot = ConfigParser.parseXML(xml);
-		
+
 		//get parsed file
 		File parsed = new File(getClass().getClassLoader().getResource("parsedJava").getFile());
 		parsedStr = "";
@@ -35,21 +35,15 @@ public class RobotMapCreationTest {
 		}
 		read.close();
 	}
-	
-	@Test
-	public void shouldParseRobotIntoValidJavaClass() {
-		try 
-		{
-			//parse the robot
-			JavaFile file = ConfigParser.generateJavaFile(robot, "test");
-			StringBuilder fileAsString = new StringBuilder();
-			file.writeTo(fileAsString);
 
-			Util.assertEquals("Java file matches expected output", parsedStr, fileAsString.toString());
-		}
-		catch (IOException e) {
-			Util.fail("Could not parse as a string for testing purposes");
-		}
+	@Test
+	public void shouldParseRobotIntoValidJavaClass() throws Exception {
+		//parse the robot
+		JavaFile file = ConfigParser.generateJavaFile(robot, "test");
+		StringBuilder fileAsString = new StringBuilder();
+		file.writeTo(fileAsString);
+
+		Assert.assertEquals("Java file matches expected output", parsedStr, fileAsString.toString());
 	}
 
 }
