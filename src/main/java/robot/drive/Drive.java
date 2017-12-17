@@ -56,4 +56,7 @@ public class Drive {
 	public double getRightSpeed() {
 		return right.get();
 	}
+	public int getScaleFactor() {
+		return scaleFactor;
+	}
 }

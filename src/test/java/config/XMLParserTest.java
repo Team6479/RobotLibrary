@@ -8,10 +8,9 @@ import java.io.IOException;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 import robot.config.parser.ConfigParser;
 import robot.config.tree.Robot;
+import util.Util;
 
 //test the parsing of the xml file
 public class XMLParserTest {
@@ -44,12 +43,12 @@ public class XMLParserTest {
 			String robotStr = robot.toString();
 
 			//if returns no Robot, failure
-			assertNotNull("Robot config cannot be null", robot);
+			Util.assertNotNull("Valid robot object returned", robot);
 
-			assertEquals("", parsedStr, robotStr);
+			Util.assertEquals("The expected xml parsing matches the actual parsing", parsedStr, robotStr);
 		}
 		catch (NullPointerException e) {
-			fail("Error parsing xml");
+			Util.fail("Error parsing xml");
 		}
 	}
 }

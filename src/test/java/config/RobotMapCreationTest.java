@@ -1,8 +1,5 @@
 package config;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -15,6 +12,7 @@ import com.squareup.javapoet.JavaFile;
 
 import robot.config.parser.ConfigParser;
 import robot.config.tree.Robot;
+import util.Util;
 
 public class RobotMapCreationTest {
 
@@ -47,10 +45,10 @@ public class RobotMapCreationTest {
 			StringBuilder fileAsString = new StringBuilder();
 			file.writeTo(fileAsString);
 
-			assertEquals("The class does not generate as expected", parsedStr, fileAsString.toString());
+			Util.assertEquals("Java file matches expected output", parsedStr, fileAsString.toString());
 		}
 		catch (IOException e) {
-			fail("Could not parse as a string for testing purposes");
+			Util.fail("Could not parse as a string for testing purposes");
 		}
 	}
 

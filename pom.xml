@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>team6479.robotrepo</groupId>
 	<artifactId>robotlib</artifactId>
-	<version>0.3.0</version>
+	<version>0.3.4</version>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -189,6 +189,7 @@
 					<target>1.8</target>
 					<includes>
 						<include>**/ConfigTest.class</include>
+						<include>**/DriveTest.class</include>
 					</includes>
 				</configuration>
 			</plugin>
