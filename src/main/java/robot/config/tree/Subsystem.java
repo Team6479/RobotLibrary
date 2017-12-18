@@ -1,9 +1,7 @@
 package robot.config.tree;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
 
 import org.dom4j.Node;
 
@@ -24,37 +22,37 @@ public class Subsystem {
 		//get all encoders of the subsystem
 		List<Node> encNodes = componentNodes.selectNodes("encoder");
 		
-		components = new HashMap<String, Component>();
+		components = new ArrayList<Component>();
 		
 		for(Node n: motorNodes) {
 			Motor motor = new Motor(n);
-			components.put(motor.getId(), motor);
+			components.add(motor);
 		}
 		for(Node n: dsolNodes) {
 			DoubleSolenoid dsol = new DoubleSolenoid(n);
-			components.put(dsol.getId(), dsol);
+			components.add(dsol);
 		}
 		for(Node n: solNodes) {
 			Solenoid sol = new Solenoid(n);
-			components.put(sol.getId(), sol);
+			components.add(sol);
 		}
 		for(Node n: encNodes) {
 			Encoder enc = new Encoder(n);
-			components.put(enc.getId(), enc);
+			components.add(enc);
 		}
 	}
 	@Override
 	public String toString() {
 		String output = String.format("Subsystem: name[%s]", id);
-		for(Entry<String, Component> entry : components.entrySet()) {
-			output += String.format("\n\t%s", entry.getValue().toString());
+		for(Component comp : components) {
+			output += String.format("\n\t%s", comp.toString());
 		}
 		return output;
 	}
 	
 	private String id;
 	//map of all components, using id of component as key
-	private Map<String, Component> components;
+	private List<Component> components;
 	
 	public String getId() {
 		return id;
@@ -62,10 +60,10 @@ public class Subsystem {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public Map<String, Component> getComponents() {
+	public List<Component> getComponents() {
 		return components;
 	}
-	public void setComponents(Map<String, Component> components) {
+	public void setComponents(List<Component> components) {
 		this.components = components;
 	}
 }

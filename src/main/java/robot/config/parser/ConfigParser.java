@@ -1,6 +1,7 @@
 package robot.config.parser;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -37,18 +38,18 @@ public class ConfigParser {
 			
 			//get all subsystems
 			List<Node> subsystemNodes = document.selectNodes("/robot/subsystem");
-			Map<String, Subsystem> subsystems = new HashMap<String, Subsystem>();
+			List<Subsystem> subsystems = new ArrayList<Subsystem>();
 			for(Node node: subsystemNodes) {
 				Subsystem sub = new Subsystem(node);
-				subsystems.put(sub.getId(), sub);
+				subsystems.add(sub);
 			}
 			
 			//get all subsystems
 			List<Node> controllerNodes = document.selectNodes("/robot/controller");
-			Map<String, Controller> controllers = new HashMap<String, Controller>();
+			List<Controller> controllers = new ArrayList<Controller>();
 			for(Node node: controllerNodes) {
 				Controller con = new Controller(node);
-				controllers.put(con.getId(), con);
+				controllers.add(con);
 			}
 			
 			//make a robot
@@ -73,7 +74,7 @@ public class ConfigParser {
 				.addModifiers(Modifier.PUBLIC);
 		
 		//run through the controllers
-		for(Controller controller : robot.getControllers().values()) {
+		for(Controller controller : robot.getControllers()) {
 			FieldSpec field = FieldSpec.builder(int.class, controller.getId())
 					.addModifiers(Modifier.PUBLIC, Modifier.STATIC, Modifier.FINAL)
 					.initializer("$L", controller.getPort())
@@ -82,8 +83,8 @@ public class ConfigParser {
 		}
 		
 		//run a loop through the components
-		for(Subsystem subsystem : robot.getSubsystems().values()) {
-			for(Component component : subsystem.getComponents().values()) {
+		for(Subsystem subsystem : robot.getSubsystems()) {
+			for(Component component : subsystem.getComponents()) {
 				
 				//get the specfic compoennt
 				if(component instanceof Motor) {

@@ -1,42 +1,41 @@
 package robot.config.tree;
 
-import java.util.Map;
-import java.util.Map.Entry;
+import java.util.List;
 
 public class Robot {
 
-	public Robot(Map<String, Subsystem> subsystems, Map<String, Controller> controllers) {
+	public Robot(List<Subsystem> subsystems, List<Controller> controllers) {
 		this.subsystems = subsystems;
 		this.controllers = controllers;
 	}
 	@Override
 	public String toString() {
 		String output = "Robot\n";
-		for(Entry<String, Subsystem> entry: subsystems.entrySet()) {
+		for(Subsystem sub: subsystems) {
 			//replace all tabs with double tabs so output looks nice
-			output += String.format("\t%s\n", entry.getValue().toString().replaceAll("\t", "\t\t"));
+			output += String.format("\t%s\n", sub.toString().replaceAll("\t", "\t\t"));
 		}
-		for(Entry<String, Controller> entry: controllers.entrySet()) {
+		for(Controller con: controllers) {
 			//replace all tabs with double tabs so output looks nice
-			output += String.format("\t%s\n", entry.getValue().toString());
+			output += String.format("\t%s\n", con.toString());
 		}
 		return output;
 	}
 	
-	private Map<String, Subsystem> subsystems;
-	private Map<String, Controller> controllers;
+	private List<Subsystem> subsystems;
+	private List<Controller> controllers;
 
-	public Map<String, Subsystem> getSubsystems() {
+	public List<Subsystem> getSubsystems() {
 		return subsystems;
 	}
 
-	public void setSubsystems(Map<String, Subsystem> subsystems) {
+	public void setSubsystems(List<Subsystem> subsystems) {
 		this.subsystems = subsystems;
 	}
-	public Map<String, Controller> getControllers() {
+	public List<Controller> getControllers() {
 		return controllers;
 	}
-	public void setControllers(Map<String, Controller> controllers) {
+	public void setControllers(List<Controller> controllers) {
 		this.controllers = controllers;
 	}
 
