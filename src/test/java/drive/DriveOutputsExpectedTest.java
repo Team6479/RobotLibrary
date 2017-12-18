@@ -35,6 +35,7 @@ public class DriveOutputsExpectedTest {
 					input2 = values[j];
 					testTank(drive, input1, input2, message + "Tank Drive");
 					testHalfTank(drive, input1, input2, message + "Half Tank Drive");
+					testArcade(drive, input1, input2, message + "Arcade Drive");
 				}
 			}
 		}
@@ -87,8 +88,22 @@ public class DriveOutputsExpectedTest {
 		//apply inputs to drive
 		drive.halfTank(input1, input2);
 		
-		testTank(drive, input1, input2, message);
+		//test the tank drive with half values
+		testTank(drive, input1 / 2, input2 / 2, message);
 	}
-
+	public void testArcade(Drive drive, double input1, double input2, String message) {
+		//apply inputs to drive
+		drive.arcade(input1, input2);
+		
+		//apply the arcade shift to the test tank method
+		testTank(drive, input1 - input2, input1 + input2, message);
+	}
+	public void testHalfArcade(Drive drive, double input1, double input2, String message) {
+		//apply inputs to drive
+		drive.arcade(input1, input2);
+		
+		//test the aracde drive with half values
+		testArcade(drive, input1 / 2, input2 / 2, message);
+	}
 
 }
