@@ -12,7 +12,7 @@ public class XboxMap {
 	
 	//Buttons
 	public static final int AButton = 1;
-	public static final int Button = 2;
+	public static final int BButton = 2;
 	public static final int XButton = 3;
 	public static final int YButton = 4;
 	public static final int LeftBumper = 5;
