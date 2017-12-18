@@ -42,7 +42,7 @@ public class RobotMapCreationTest {
 		JavaFile file = ConfigParser.generateJavaFile(robot, "test");
 		StringBuilder fileAsString = new StringBuilder();
 		file.writeTo(fileAsString);
-
+		
 		Assert.assertEquals("Java file matches expected output", parsedStr, fileAsString.toString());
 	}
 
