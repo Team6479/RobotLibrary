@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>team6479.robotrepo</groupId>
 	<artifactId>robotlib</artifactId>
-	<version>0.4.8</version>
+	<version>1.0.0</version>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -48,12 +48,12 @@
 		<dependency>
 			<groupId>edu.wpi.first.cscore</groupId>
 			<artifactId>cscore-java</artifactId>
-			<version>1.1.0-beta-4</version>
+			<version>1.1.0</version>
 		</dependency>
 		<dependency>
 			<groupId>edu.wpi.first.ntcore</groupId>
 			<artifactId>ntcore-java</artifactId>
-			<version>4.0.0-beta-4</version>
+			<version>4.0.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.opencv</groupId>
@@ -63,7 +63,7 @@
 		<dependency>
 			<groupId>edu.wpi.first.wpilibj</groupId>
 			<artifactId>wpilibj-java</artifactId>
-			<version>2018.1.1-beta-4</version>
+			<version>2018.1.1</version>
 		</dependency>
 	</dependencies>
 
