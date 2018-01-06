@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>team6479.robotrepo</groupId>
 	<artifactId>robotlib</artifactId>
-	<version>1.0.0</version>
+	<version>1.1.0</version>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -64,6 +64,11 @@
 			<groupId>edu.wpi.first.wpilibj</groupId>
 			<artifactId>wpilibj-java</artifactId>
 			<version>2018.1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>edu.wpi.first.wpiutil</groupId>
+			<artifactId>wpiutil-java</artifactId>
+			<version>3.0.0</version>
 		</dependency>
 	</dependencies>
 
