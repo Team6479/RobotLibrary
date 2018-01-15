@@ -2,6 +2,15 @@ bin/
 build/
 lib/
 target/
-.settings/
 
+# IDE Files
+# Eclipse
+.classpath
+.project
+.settings/
+# IntelliJ
+*.iml
+.idea/
+
+# Other
 .ant_targets
