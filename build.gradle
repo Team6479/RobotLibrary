@@ -21,9 +21,9 @@ dependencies {
     antlr "org.antlr:antlr4:4.7"
 
     //General Deps
-    compile group: 'commons-cli', name: 'commons-cli', version: '1.4'
-    compile group: 'com.squareup', name: 'javapoet', version: '1.9.0'
-    compile group: 'org.dom4j', name: 'dom4j', version: '2.1.0'
+    implementation group: 'commons-cli', name: 'commons-cli', version: '1.4'
+    implementation group: 'com.squareup', name: 'javapoet', version: '1.9.0'
+    implementation group: 'org.dom4j', name: 'dom4j', version: '2.1.0'
 
     //Test Deps
     testCompile group: 'junit', name: 'junit', version: '4.12'
