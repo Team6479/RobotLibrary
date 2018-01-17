@@ -1,7 +1,15 @@
+# Buid Paths
 bin/
 build/
-lib/
+out
+output/
 target/
+
+# Lib Path
+lib/
+
+# Gradle Files
+.gradle/
 
 # IDE Files
 # Eclipse
