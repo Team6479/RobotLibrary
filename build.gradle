@@ -40,6 +40,12 @@ generateGrammarSource {
     arguments += ["-package", "rpl"]
 }
 
+test {
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+
 publishing {
     publications {
         robotlib(MavenPublication) {
