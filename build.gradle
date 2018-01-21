@@ -46,14 +46,37 @@ test {
     }
 }
 
+task sourceJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+task packageJavadoc(type: Jar) {
+    from javadoc
+    classifier = 'javadoc'
+}
+
+artifacts {
+    archives sourceJar, packageJavadoc
+}
+
+tasks.withType(Zip) { task ->
+    task.doLast {
+        ant.checksum file: it.archivePath
+    }
+}
+
 publishing {
     publications {
         robotlib(MavenPublication) {
+            from components.java
+
             groupId 'team6479.robotrepo'
-            artifactId 'robotlib'
+            artifactId "robotlib"
             version projectVersion
 
-            from components.java
+            artifact sourceJar
+            artifact packageJavadoc
         }
     }
 }
@@ -65,6 +88,7 @@ bintray {
 
     dryRun = false
     publish = true
+    override = false
 
     pkg {
         repo = 'RobotRepo'
