@@ -33,4 +33,4 @@ Thomas Quillan - link to github
 * clean up useless things
 
 
-[1][https://team6479.github.io/RobotLibrary/]
+[1]: https://team6479.github.io/RobotLibrary/
