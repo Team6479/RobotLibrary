@@ -20,3 +20,13 @@ Thomas Quillan - link to github
 
 
 link to website
+
+
+
+##TODO
+* add gradle plugin for java doc
+* host java doc online
+* add java doc
+* add 2018 code
+* enchance readme and wiki pages
+* clean up useless things
