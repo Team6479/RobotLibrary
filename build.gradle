@@ -21,9 +21,9 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
 
     //FRC Deps
-    compile group: 'edu.wpi.first.ntcore', name: 'ntcore-java', version: '4.0.0'
-    compile group: 'edu.wpi.first.wpilibj', name: 'wpilibj-java', version: '2018.1.1'
-    compile group: 'edu.wpi.first.wpiutil', name: 'wpiutil-java', version: '3.0.0'
+    compile group: 'edu.wpi.first.ntcore', name: 'ntcore-java', version: '4.1.0'
+    compile group: 'edu.wpi.first.wpilibj', name: 'wpilibj-java', version: '2018.4.1'
+    compile group: 'edu.wpi.first.wpiutil', name: 'wpiutil-java', version: '3.2.0'
 }
 
 test {
