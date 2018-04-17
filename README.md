@@ -1,36 +1,48 @@
 # RobotLibrary
 
 
-This is Team 6479's universal code that we have found to be useful in many situations and is posted here for the geenreal use of the FRC community.
+This is Team 6479's universal code that we have found to be useful in many situations and is posted here for the general use of the FRC community.
+
+
+## Installation
+How to use in your project simple, link to compliciated in git wiki
+
+
+## Examples
+Link to wiki
+
 
 ## Documentation
 Our documentation can be found [here][1]
 
 
-Work in progress
 ## Libraries Used
-| Library               | Creator   |
-|:--------------------- |:--------- |
-|      |  |
-|      |    |
-
-
+* [WPILib][5]
+* [WPILib Util][6]
+* [NetworkTables][7]
+* [JUnit][8]
 
 
 ## Authors
-Jacob Abraham - link to github
-Rashad Ahmed - link to github
-Thomas Quillan - link to github
-
+* [Jacob Abraham][2]
+* [Rashad Ahmed][3]
+* [Thomas Quillan][4]
 
 
 ## TODO
-* add gradle plugin for java doc
-* host java doc online
-* add java doc
+* add java doc to rest of code
 * add 2018 code
-* enchance readme and wiki pages
-* clean up useless things
+* enhance readme and wiki pages
+* add code coverage
+
+
 
 
 [1]: https://team6479.github.io/RobotLibrary/
+[2]: https://github.com/jacob-abraham
+[3]: https://github.com/ryraansh
+[4]: https://github.com/iboyperson
+[5]: https://github.com/wpilibsuite/allwpilib
+[6]: https://github.com/wpilibsuite/ntcore 
+[7]: https://github.com/wpilibsuite/wpiutil
+[8]: https://junit.org/junit5/
