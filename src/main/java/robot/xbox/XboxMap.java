@@ -1,5 +1,11 @@
 package robot.xbox;
 
+/**
+ * <h1>Xbox Map</h1>
+ * This is a simple class of constants that contains the basic mappings for buttons on the xbox controller
+ * 
+ * @author Rashad Ahmed
+ */
 public class XboxMap {
 	
 	//Sticks and Triggers
