@@ -5,8 +5,13 @@ import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.SpeedController;
 
-
-//this class knows about all control systems, ie motors, solonoids
+/**
+ * <h1>Robot Control</h1>
+ * Knows about and controls all functions on the robot. This class is capable of managing {@link SpeedController}, {@link Solenoid}, and {@link DoubleSolenoid} objects.
+ * 
+ * 
+ * @author Jacob Abraham
+ */
 public class RobotControl {
 	
 	//all motor controls
