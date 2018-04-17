@@ -42,7 +42,7 @@ task packageJavadoc(type: Jar) {
     classifier = 'javadoc'
 }
 
-javadoc {
+javadoc << {
     source = sourceSets.main.allJava
     classpath = configurations.compile
     title = "FRC Team 6479 Robot Library"
