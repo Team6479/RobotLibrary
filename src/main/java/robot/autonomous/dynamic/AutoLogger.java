@@ -5,8 +5,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import robot.autonomous.Global;
-
 public class AutoLogger {
 	
 	private BufferedWriter write;
@@ -23,7 +21,7 @@ public class AutoLogger {
 	public boolean open() {
 		try 
 		{
-			write = new BufferedWriter(new PrintWriter(Global.getInstance().DYNAMIC_DIR_PATH + autoName));
+			write = new BufferedWriter(new PrintWriter(AutoFileUtil.getInstance().getAutoFileName(autoName)));
 			
 		} 
 		catch (FileNotFoundException e) 

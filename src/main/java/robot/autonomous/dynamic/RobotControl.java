@@ -12,16 +12,32 @@ import edu.wpi.first.wpilibj.SpeedController;
  * 
  * @author Jacob Abraham
  */
+
+//TODO: redo log() to fucntion with a map so that motor values can be named
+//TODO: rewrite with maps instead of arrays
 public class RobotControl {
 	
-	//all motor controls
+	/**
+	 * Holds all {@link SpeedController} objects managed by this class
+	 */
 	private SpeedController[] motorControllers;
-	//all single solonoids
+	/**
+	 * Holds all {@link Solenoid} objects managed by this class
+	 */
 	private Solenoid[] solenoids;
-	//all double solonoids
+	/**
+	 * Holds all {@link DoubleSolenoid} objects managed by this class
+	 */
 	private DoubleSolenoid[] doubleSolenoids;
 	
 	
+	/**
+	 * Constructor that the arrays that store the objects
+	 * 
+	 * @param motorControllers array of the {@link SpeedController} objects managed by this class
+	 * @param solenoids array of the {@link Solenoid} objects managed by this class
+	 * @param doubleSolenoids array of the {@link DoubleSolenoid} objects managed by this class
+	 */
 	public RobotControl(SpeedController[] motorControllers, Solenoid[] solenoids, DoubleSolenoid[] doubleSolenoids) {
 		this.motorControllers = motorControllers;
 		this.solenoids = solenoids;
@@ -29,7 +45,9 @@ public class RobotControl {
 	}
 	
 	
-	//when auto is done, Robot will tell robot to stop, do this by setting all speed controllers to zero
+	/**
+	 * Stops all motors and sets solenoids to a neutral state
+	 */
 	public void stop() {
 		for(SpeedController sc: motorControllers) {
 			sc.set(0);
@@ -42,7 +60,10 @@ public class RobotControl {
 		}
 	}
 	
-	//write the current values to an array and return it
+	/**
+	 * Write the current value of all objects to a string
+	 * @return a string of the form '{[<>,<>,...][<>,<>,...][<>,<>,...]}' in the order of: {@link SpeedController}, {@link Solenoid}, {@link DoubleSolenoid}
+	 */
 	public String log() {
 		//motor controller values
 		String motorValues = "[";
@@ -85,7 +106,12 @@ public class RobotControl {
 		
 		return String.format("{%s%s%s}\n", motorValues, solenoidValues, dSolenoidValues);
 	}
-	//in format of '{[motor,motor][sol,sol][dsol,dsol]}\n'
+	
+	/**
+	 * Read in a string, parse it, and set the values to the control objects
+	 * @param values string of the form '{[#,#,...][#,#,...][#,#,...]}' in the order of: {@link SpeedController}, {@link Solenoid}, {@link DoubleSolenoid}
+	 * @return true if successfully parsed and values set
+	 */
 	public boolean set(String values) {
 		//compute the speeds
 		//remove the ending brackets and braces
@@ -98,6 +124,7 @@ public class RobotControl {
 			return false;
 		}
 		
+		//parse values, if error occurs return false
 		if(!parseMotor(types[0]) || !parseSolenoid(types[1]) || !parseDoubleSolenoid(types[2])) {
 			return false;
 		}
@@ -105,6 +132,12 @@ public class RobotControl {
 		//return with no error
 		return true;
 	}
+	
+	/**
+	 * Parse a string of {@link SpeedController} values and set them to the corresponding {@link SpeedController}
+	 * @param values string of the form '[<>,<>,...]' which contains {@link SpeedController} values in order
+	 * @return true if successfully parsed and values set
+	 */
 	private boolean parseMotor(String values) {
 		
 		//split the comma seperated vaues
@@ -124,6 +157,12 @@ public class RobotControl {
 		//return with no error
 		return true;
 	}
+	
+	/**
+	 * Parse a string of {@link Solenoid} values and set them to the corresponding {@link Solenoid}
+	 * @param values string of the form '[<>,<>,...]' which contains {@link Solenoid} values in order
+	 * @return true if successfully parsed and values set
+	 */
 	private boolean parseSolenoid(String values) {
 	
 		//split the comma seperated vaues
@@ -143,6 +182,12 @@ public class RobotControl {
 		//return with no error
 		return true;
 	}
+	
+	/**
+	 * Parse a string of {@link DoubleSolenoid} values and set them to the corresponding {@link DoubleSolenoid}
+	 * @param values string of the form '[<>,<>,...]' which contains {@link DoubleSolenoid} values in order
+	 * @return true if successfully parsed and values set
+	 */
 	private boolean parseDoubleSolenoid(String values) {
 		
 		//split the comma seperated vaues
