@@ -1,5 +1,6 @@
 # RobotLibrary
-
+[![Build Status](https://travis-ci.org/Team6479/RobotLibrary.svg?branch=master)](https://travis-ci.org/Team6479/RobotLibrary)
+[![](https://jitpack.io/v/team6479/RobotLibrary.svg)](https://jitpack.io/#team6479/RobotLibrary)
 
 This is Team 6479's universal code that we have found to be useful in many situations and is posted here for the general use of the FRC community.
 
