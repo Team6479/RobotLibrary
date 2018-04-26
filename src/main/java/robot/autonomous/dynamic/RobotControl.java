@@ -62,7 +62,7 @@ public class RobotControl {
 	
 	/**
 	 * Write the current value of all objects to a string
-	 * @return a string of the form '{[<>,<>,...][<>,<>,...][<>,<>,...]}' in the order of: {@link SpeedController}, {@link Solenoid}, {@link DoubleSolenoid}
+	 * @return a string of the form '{[&lt;&gt;,&lt;&gt;,...][&lt;&gt;,&lt;&gt;,...][&lt;&gt;,&lt;&gt;,...]}' in the order of: {@link SpeedController}, {@link Solenoid}, {@link DoubleSolenoid}
 	 */
 	public String log() {
 		//motor controller values
