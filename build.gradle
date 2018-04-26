@@ -43,7 +43,11 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
     from javadoc.destinationDir
 }
 
-javadoc << {
+task cleanGitHubDocs(type: Delete) {
+    delete "docs"
+}
+
+task genGitHubDocs(type: Javadoc, dependsOn: cleanGitHubDocs) {
     source = sourceSets.main.allJava
     classpath = configurations.compile
     title = "FRC Team 6479 Robot Library"
