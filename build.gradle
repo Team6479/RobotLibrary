@@ -1,12 +1,14 @@
 plugins {
     id "java"
-    id "java-library"
     id "eclipse"
     id "idea"
     id "maven"
-    id "maven-publish"
-    id "com.jfrog.bintray" version "1.7.3"
 }
+
+group = 'com.github.team6479'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 repositories {
     mavenCentral()
@@ -16,7 +18,6 @@ repositories {
 }
 
 dependencies {
-
     //Test Deps
     testCompile group: 'junit', name: 'junit', version: '4.12'
 
@@ -32,14 +33,14 @@ test {
     }
 }
 
-task sourceJar(type: Jar) {
+task sourceJar(type: Jar, dependsOn: classes) {
     classifier = 'sources'
     from sourceSets.main.allSource
 }
 
-task packageJavadoc(type: Jar) {
-    from javadoc
+task javadocJar(type: Jar, dependsOn: javadoc) {
     classifier = 'javadoc'
+    from javadoc.destinationDir
 }
 
 javadoc << {
@@ -49,50 +50,8 @@ javadoc << {
     destinationDir = new File("${rootDir}/docs")
 }
 
-
 artifacts {
-    archives sourceJar, packageJavadoc
-}
-
-tasks.withType(Zip) { task ->
-    task.doLast {
-        ant.checksum file: it.archivePath
-    }
-}
-
-publishing {
-    publications {
-        robotlib(MavenPublication) {
-            from components.java
-
-            groupId 'team6479.robotrepo'
-            artifactId "robotlib"
-            version projectVersion
-
-            artifact sourceJar
-            artifact packageJavadoc
-        }
-    }
-}
-
-bintray {
-    user = bintrayUser
-    key = bintrayKey
-    publications = ['robotlib']
-
-    dryRun = false
-    publish = true
-    override = false
-
-    pkg {
-        repo = 'RobotRepo'
-        name = 'robotlib'
-        userOrg = 'team6479'
-        version {
-            name = projectVersion
-            desc = "Robotlib release ${projectVersion}"
-        }
-    }
+    archives sourceJar, javadocJar
 }
 
 task wrapper(type: Wrapper) {
