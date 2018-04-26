@@ -5,8 +5,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-import robot.autonomous.Global;
-
 //playback the autonomous rotuine specidefiec by the file
 public class AutoPlayback {
 	
@@ -24,7 +22,7 @@ public class AutoPlayback {
 	public boolean open() {
 		try 
 		{
-			read = new BufferedReader(new FileReader(Global.getInstance().DYNAMIC_DIR_PATH  + autoName));
+			read = new BufferedReader(new FileReader(AutoFileUtil.getInstance().getAutoFileName(autoName)));
 			
 		} 
 		catch (FileNotFoundException e) 
