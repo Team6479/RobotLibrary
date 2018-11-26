@@ -1,4 +1,4 @@
-package robot.xbox;
+package robot.controllers;
 
 /**
  * <h1>Xbox Map</h1>
