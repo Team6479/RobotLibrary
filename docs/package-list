@@ -1,2 +1,4 @@
 robot.autonomous.dynamic
-robot.xbox
+robot.controllers
+robot.sensors
+robot.subsystem_interfaces
