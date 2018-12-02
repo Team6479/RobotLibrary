@@ -57,7 +57,3 @@ task genGitHubDocs(type: Javadoc, dependsOn: cleanGitHubDocs) {
 artifacts {
     archives sourceJar, javadocJar
 }
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '4.5'
-}
