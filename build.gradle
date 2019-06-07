@@ -1,14 +1,12 @@
 plugins {
     id "java"
-    id "eclipse"
-    id "idea"
-    id "maven"
+    id "edu.wpi.first.GradleRIO" version "2019.4.1"
 }
 
 group = 'com.github.team6479'
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
 
 repositories {
     mavenCentral()
@@ -18,13 +16,10 @@ repositories {
 }
 
 dependencies {
-    //Test Deps
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-
-    //FRC Deps
-    compile group: 'edu.wpi.first.ntcore', name: 'ntcore-java', version: '4.1.0'
-    compile group: 'edu.wpi.first.wpilibj', name: 'wpilibj-java', version: '2018.4.1'
-    compile group: 'edu.wpi.first.wpiutil', name: 'wpiutil-java', version: '3.2.0'
+    compile wpi.deps.wpilib()
+    compile wpi.deps.vendor.java()
+    nativeZip wpi.deps.vendor.jni(wpi.platforms.roborio)
+    nativeDesktopZip wpi.deps.vendor.jni(wpi.platforms.desktop)
 }
 
 test {
@@ -58,6 +53,6 @@ artifacts {
     archives sourceJar, javadocJar
 }
 
-task wrapper(type: Wrapper) {
-    gradleVersion = '4.5'
+wrapper {
+    gradleVersion = "5.4.1"
 }
